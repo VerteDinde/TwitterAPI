@@ -1,0 +1,17 @@
+
+You'll need: 
+
+    python
+    install easy_install: http://pypi.python.org/pypi/setuptools
+    install virtualenv:  pip install virtualenv
+
+To get set up:
+
+    virtualenv ~/envs/TwitterAPI
+    source ~/envs/TwitterAPI/bin/activate
+    pip install python-twitter
+
+Then run:
+
+    python twitter_api.py -h
+
