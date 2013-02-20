@@ -1,17 +1,24 @@
 
-You'll need: 
+You'll need to install:
 
-    python
-    install easy_install: http://pypi.python.org/pypi/setuptools
-    install virtualenv:  pip install virtualenv
+    python http://python.org/download/
+    easy_install: http://pypi.python.org/pypi/setuptools
+    virtualenv:  pip install virtualenv
 
-To get set up:
+To get set up, run these commands:
 
+    mkdir -p ~/envs
     virtualenv ~/envs/TwitterAPI
     source ~/envs/TwitterAPI/bin/activate
     pip install python-twitter
 
+Create a config file that defines an api object and installs your keys:
+
+    cat >> config.py
+import twitter
+api = twitter.Api(consumer_key='YOURKEY1', consumer_secret='YOURKEY2', access_token_key='YOURKEY3', access_token_secret='YOURKEY4')
+    ^D
+
 Then run:
 
     python twitter_api.py -h
-

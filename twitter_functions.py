@@ -1,7 +1,10 @@
 import twitter
 import util
 
+from config import *
+
 BOSTON_WOEID = 2367105
+PORTLAND_WOEID = 2475687
 
 def search(searchTerm):
     """
@@ -12,7 +15,6 @@ def search(searchTerm):
     For example,
         python twitter_api.py --search=python
     """
-    api = twitter.Api()
     tweets = api.GetSearch(searchTerm)
     for tweet in tweets:
         util.safe_print(tweet.GetText())
@@ -24,7 +26,6 @@ def trendingTopics():
     To test this function, at the command line run:
         python twitter_api.py -t
     """
-    api = twitter.Api()
 
     trending_topics = api.GetTrendsWoeid(BOSTON_WOEID)
     for topic in trending_topics:
@@ -41,7 +42,9 @@ def userTweets(username):
     For example,
         python twitter_api.py -u bostonpython
     """
-    pass
+    user_tweets = api.GetUserTimeline(username)
+    for tweet in user_tweets:
+        util.safe_print(tweet.GetText())
 
 def trendingTweets():
     """
@@ -50,4 +53,8 @@ def trendingTweets():
     To test this function, at the command line run:
         python twitter_api.py -w
     """
-    pass
+    trending_topics = api.GetTrendsWoeid(PORTLAND_WOEID)
+    for topic in trending_topics:
+        trending_tweets = api.GetSearch(topic.name)
+        for tweet in trending_tweets:
+            util.safe_print(tweet.GetText())
