@@ -3,10 +3,11 @@ You'll need to install:
 
     python http://python.org/download/
     easy_install: http://pypi.python.org/pypi/setuptools
-    virtualenv:  pip install virtualenv
+    git: https://help.github.com/articles/set-up-git
 
-To get set up, run these commands:
+To get TwitterAPI up, run these commands:
 
+    easy_install virtualenv
     mkdir -p ~/envs
     virtualenv ~/envs/TwitterAPI
     source ~/envs/TwitterAPI/bin/activate
